@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeLoan</title>
+  <!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+  <link rel="stylesheet" href="./persondetails.component.css">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header_top">
+    <img src="../../assets/images/logo1.png" alt="HOME LOAN">
+    <h1>HOME LOAN</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul class="nav_bar">
+      <li><a routerLink="">Home</a></li>
+      <li><a routerLink="../../../about">About Us</a></li>
+
+
+      <li><a href="javascript:;">Calculator</a>
+        <ul class="first-level-menu">
+          <li><a routerLink="../../../eligibilitycalculator">Eligibility Calculator</a></li>
+          <li><a routerLink="../../../emicalculator">Emi Calculator</a></li>
+        </ul>
+      </li>
+      <li><a routerLink="../propertydetails">Application</a></li>
+      <li><a routerLink="../../../loantracker">Loan Tracker</a></li>
+
+
+      <li><a routerLink="../../../faq">FAQ</a></li>
+    </ul>
+  </nav>
+
+  <div class="main wrapper">
+    <div class="container">
+
+
+      <section class="calmain">
+        <div class="calcontent">
+          <div class="follow text-center">
+            <h2>Personal Details</h2>
+
+            <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <div><label for="first_Name">First Name:</label></div>
+                <input type="text" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" formControlName="first_Name"
+                  placeholder="First Name">
+                <div *ngIf="submitted && personForm.controls['first_Name'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['first_Name'].errors['required']">First Name is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="middle_Name">Middle Name: </label></div>
+                <input type="text" formControlName="middle_Name" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$"
+                  placeholder="Middle Name">
+                <div *ngIf="submitted && personForm.controls['middle_Name'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['middle_Name'].errors['required']">Middle Name is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="last_Name">Last Name: </label></div>
+                <input type="text" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" formControlName="last_Name"
+                  placeholder="Last Name">
+                <div *ngIf="submitted && personForm.controls['last_Name'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['last_Name'].errors['required']">Last Name is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="email_id">email_id ID:</label></div>
+                <input type="text" formControlName="email_id" placeholder="email_id Id">
+                <div *ngIf="submitted && personForm.controls['email_id'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['email_id'].errors['required']">email_id is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="password">Password:</label></div>
+                <input type="password" formControlName="password" pattern= "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" placeholder="Password">
+                <div *ngIf="submitted && personForm.controls['password'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['password'].errors['required']">Password is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="confirm_Password">Confirm Password: </label></div>
+                <input type="password" formControlName="confirm_Password" pattern= "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$" placeholder="Confirm Password">
+                <div *ngIf="submitted && personForm.controls['confirm_Password'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['confirm_Password'].errors['required']">Confirm
+                    Password is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="phone_No">Phone Number:</label></div>
+                <input type="text"  minlength=10 maxlength=10 formControlName="phone_No" placeholder="Phone Number">
+                <div *ngIf="submitted && personForm.controls['phone_No'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['phone_No'].errors['required']">Phone Number is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="dob">DOB:</label></div>
+                <input type="date" formControlName="dob" placeholder="DOB">
+                <div *ngIf="submitted && personForm.controls['dob'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['dob'].errors['required']">DOB is required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="gender">Select Gender:</label></div>
+                <select id="gender" name="gender" formControlName="gender">
+                  <option selected value="" disabled>Choose...</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+                <div *ngIf="submitted && personForm.controls['gender'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['gender'].errors['required']">Gender is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="nationality">Nationality:</label></div>
+                <input type="text" formControlName="nationality" placeholder="Nationality">
+                <div *ngIf="[submitted && personForm.controls['nationality'].errors]" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['nationality'].errors['required']">Nationality is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="aadhar_No">Aadhar no: </label></div>
+                <input type="text" minlength=12 maxlength=12 formControlName="aadhar_No" placeholder="Aadhar Number">
+                <div *ngIf="submitted && personForm.controls['aadhar_No'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['aadhar_No'].errors['required']">Aadhar Number is
+                    required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="pan_No">Pan no:</label></div>
+                <input type="text" pattern="/[a-zA-Z]{5}[0-9]{4}[a-zA-Z]{1}/"formControlName="pan_No" placeholder="Pan Number">
+                <div *ngIf="submitted && personForm.controls['pan_No'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['pan_No'].errors['required']">Pan Number is
+                    required</div>
+                </div>
+              </div>
+              <!-- Secret question -->
+              <div class="form-group">
+                <div><label for="squestion">Select Secret Question:</label></div>
+                <select select class="form-control" id="squestion" name="squestion" formControlName="squestion">
+                  <option value="What is Your Favorite Pet?">What is Your Favorite Pet?</option>
+                  <option value="What is your Mother Tongue?">What is your Mother Tongue?</option>
+                  <option value="What is your Favorite Colour?">What is your Favorite Colour?</option>
+                  <option value="What is your Native Place?">What is your Native Place?</option>
+                </select>
+
+                <div *ng If="submitted && personForm.controls['squestion'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['squestion'].errors['squestion']">Secret Question
+                    is Required</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div><label for="answer">Answer</label></div>
+                <input type="text" formControlName="answer" placeholder="Answer">
+                <div *ngIf="submitted && personForm.controls['answer'].errors" class="error">
+                  <div class="text-danger" *ngIf="personForm.controls['answer'].errors['required']">Secret Answer
+                    Required</div>
+                </div>
+              </div>
+              
+              <div class="sub-class">
+                <a href="#"><button class="btn-sub1">Submit</button></a>
+
+                <a routerLink=""><button class="btn-sub">Home</button></a>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+
+  <!-- Fotter -->
+  <footer class="foot-end">
+    <p @copyright elv><span>projects &copy;ltd 2021. all rights reserved</span> </p>
+    
+  </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+export class Person {
+    constructor(propertyid:number){
+        this.propertyid=propertyid;
+    }
+    propertyid:number;
+    id:number;
+    first_Name:string;
+    middle_Name:string;
+    last_Name:string;
+    email_id:string;
+    password:string;
+    confirm_Password:string;
+    phone_No:string;
+    dob:Date;
+    gender:string;
+    nationality:string;
+    aadhar_No:string;
+    pan_No:string;
+    squestion:string;
+    answer:string;
+}

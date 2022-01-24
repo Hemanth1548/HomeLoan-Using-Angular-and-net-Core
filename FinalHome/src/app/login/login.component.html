@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeLoan</title>
+  <!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<!-- Google Font -->
+  <link rel="stylesheet" href="./login.component.css">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header_top">
+    <img src="../../assets/images/logo1.png" alt="HOME LOAN">
+    <h1>HOME LOAN</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+        <ul class="nav_bar">
+            <li><a routerLink="">Home</a></li>
+            <li><a routerLink="about">About Us</a></li>
+            <li><a href="javascript:;">Calculator</a>
+                <ul class="first-level-menu">
+                    <li><a routerLink="../eligibilitycalculator">Eligibility Calculator</a></li>
+                    <li><a routerLink="../emicalculator">Emi Calculator</a></li>
+                </ul>
+            </li>
+            <li><a routerLink="../propertydetails">Application</a></li>
+            <li><a routerLink="../faq">FAQ</a></li>
+        </ul>
+    </nav>
+
+  <div class="main wrapper">
+    <div class="container">
+
+      <section class="calmain">
+        <div class="calcontent">
+          <h2 class="text-center mb-5">Login</h2>
+
+          <form [formGroup]="userform" (ngSubmit)="login()">
+
+            <div class="form-group">
+              <div><label for="adminUsername">Email_id Address</label></div>
+              <input type="adminUsername" class="form-control" id="adminUsername" formControlName="adminUsername"
+                aria-describedby="email_idHelp" placeholder="Email Id">
+              <div><small id="email_idHelp" class="form-text text-muted">We'll never share your email_id with anyone
+                else.</small></div>
+            </div>
+
+            <div class="form-group">
+              <div><label for="password">Password</label></div> 
+              <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+            </div>
+            <div class="sub-class">
+              <a href="#"><button class="btn-sub1">Login</button></a>
+              <!-- <a routerLink="../incomedetails" class="btn-sub">Forgot Password?</a> -->
+            </div>
+          </form>
+
+        </div>
+      </section>
+
+
+    </div>
+  </div>
+
+  <!-- Fotter -->
+  <footer class="foot-end">
+    <p @copyright elv><span>projects &copy;ltd 2021. all rights reserved</span> </p>
+    
+  </footer>
+
+
+</body>
+
+</html>
